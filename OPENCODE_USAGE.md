@@ -47,20 +47,32 @@ $env:OPENAI_API_KEY = "local"
 opencode
 ```
 
-### Method B: OpenCode Config File (Permanent)
+### Method B: Project Config File (Recommended)
 
-Create or edit your OpenCode config file:
-
-**Location:** `~/.opencode/config.json` or project `.opencode/config.json`
+Create `opencode.json` in your project folder:
 
 ```json
 {
-  "provider": "openai",
-  "model": "gemma4",
-  "api_base_url": "http://127.0.0.1:8080/v1",
-  "api_key": "local"
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "local-gemma4": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Gemma 4 Local",
+      "options": {
+        "baseURL": "http://127.0.0.1:8080/v1"
+      },
+      "models": {
+        "gemma4": {
+          "name": "Gemma 4 E2B Q4_K_M (local)"
+        }
+      }
+    }
+  },
+  "model": "local-gemma4/gemma4"
 }
 ```
+
+Then just run `opencode` — it will auto-connect to your local server.
 
 ### Method C: OpenCode Settings (If Available)
 
