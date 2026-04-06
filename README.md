@@ -20,7 +20,7 @@ This project sets up **llama.cpp** with **Gemma 4 E2B** as a fully local AI infe
 
 ---
 
-## Roles
+## Team
 
 ### 👤 Supervisor: tps2015gh (Thitipong Samranvanich)
 - Define direction and requirements
@@ -35,6 +35,14 @@ This project sets up **llama.cpp** with **Gemma 4 E2B** as a fully local AI infe
 - Troubleshoot issues (like architecture mismatches)
 - Maintain project documentation
 
+### 🧠 AI Models (The Team)
+
+| Model | Role | Status |
+|-------|------|--------|
+| **Gemma 4 E2B Q4_K_M** | Primary local coding assistant | ✅ Active (llama.cpp b8676) |
+| **MiniMax M2.5 Free** | Cloud fallback (OpenCode Zen) | ✅ Available |
+| **Qwen3 1.7B** | Local lightweight model (Ollama) | ✅ Available |
+
 ### 💻 Model: Gemma 4 E2B Q4_K_M
 - **Type:** Google's Gemma 4, Expert 2B variant
 - **Quantization:** Q4_K_M (4-bit, medium quality)
@@ -43,6 +51,7 @@ This project sets up **llama.cpp** with **Gemma 4 E2B** as a fully local AI infe
 - **Context:** 131,072 tokens (theoretical), 2,048-4,096 (practical on 8GB)
 - **Speed:** ~10 tokens/sec on CPU (8GB RAM)
 - **Memory:** ~4.8GB RAM usage
+- **Integration:** OpenCode via llama.cpp server (port 8080)
 
 ---
 
