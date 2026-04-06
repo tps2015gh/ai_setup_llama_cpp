@@ -1,0 +1,4 @@
+#prompt01
+
+i hear/read that llama.cpp is faster than ollama and not have to install wsl ,and narrow layer so
+  make faster especially on notebook low ram ? is it true ? ​

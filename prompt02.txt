@@ -1,0 +1,10 @@
+ #prompt02 
+
+  i will tell you to setup , allow you to create SKILL for that task ,allow you to create virtual agent
+  for that task in QA or research or secretary for you , also . create report to me each step you do as
+  MD file in folder REPORTS i want to install Gemma 4 local that appropriate for my machine ( create
+  skill to test this ) , you can see some skill from c:\dev\tps_opencode_skills  ( you can copy or make
+  look like that by concept ) and also from c:\dev\abcd_setup_server too , remove ollama and all
+  offline mode to save diskspace before install llama.cpp . add AI.MD to be RCP in case you hang or end
+  of token ai ,  or else . do skill since this approach is for save token AI , so plan with save token
+  ai in mind too .   ​

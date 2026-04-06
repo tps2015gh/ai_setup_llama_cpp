@@ -1,0 +1,25 @@
+# Models (too large for git)
+*.gguf
+llama-cpp/models/
+
+# llama.cpp binaries (downloaded by setup.py)
+llama-cpp/*.exe
+llama-cpp/*.dll
+llama-cpp/*.txt
+llama-cpp/*.zip
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Logs (optional - keep if you want history in repo)
+# what_i_doing_and_have_done.log
