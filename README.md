@@ -127,6 +127,7 @@ ai_setup_llama_cpp/
 | File | Purpose |
 |------|---------|
 | `README.md` | This file — project overview and guide |
+| `WORKFLOW.md` | **How to use each model effectively** |
 | `HOW_TO_RUN.md` | Quick start, commands, parameters |
 | `HOW_TO_FIX_CODE.md` | **How to use local AI to fix your program** |
 | `OPENCODE_USAGE.md` | **How to call local AI from OpenCode** |
