@@ -117,9 +117,12 @@ ai_setup_llama_cpp/
 
 | File | Purpose |
 |------|---------|
+| `README.md` | This file — project overview and guide |
 | `HOW_TO_RUN.md` | Quick start, commands, parameters |
+| `HOW_TO_FIX_CODE.md` | **How to use local AI to fix your program** |
 | `AGENTIC_USAGE.md` | OpenCode, Qwen, Continue, API integration |
 | `AI.md` | Recovery checkpoint for AI context loss |
+| `setup.py` | Interactive setup menu |
 | `REPORTS/` | Detailed phase-by-phase documentation |
 | `what_i_doing_and_have_done.log` | Complete activity timeline |
 
