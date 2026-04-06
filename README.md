@@ -22,7 +22,7 @@ This project sets up **llama.cpp** with **Gemma 4 E2B** as a fully local AI infe
 
 ## Roles
 
-### 👤 Supervisor (You)
+### 👤 Supervisor: tps2015gh (Thitipong Samranvanich)
 - Define direction and requirements
 - Make decisions on model selection
 - Guide the setup process
