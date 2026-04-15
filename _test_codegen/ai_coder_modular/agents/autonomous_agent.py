@@ -132,6 +132,10 @@ app/Views/users/index.php"""
             if response:
                 todo = self.extract_todo(response)
             
+            # Debug: print AI response if no files extracted
+            if not todo:
+                self.log(f"[DEBUG] AI Response:\n{response[:500]}...")
+            
             # If too few files, ask AI to expand
             if todo and len(todo) < 5:
                 self.log(f"Only {len(todo)} files planned. Asking for more...")
@@ -299,6 +303,9 @@ Generate complete working code. Output ONLY code block."""
         """Extract todo list from AI response"""
         files = []
         
+        # Debug: print raw response
+        self.log(f"[DEBUG] Raw response length: {len(response)} chars")
+        
         for line in response.split('\n'):
             line = line.strip()
             line = re.sub(r'^\d+[.)]\s*', '', line)
@@ -311,5 +318,17 @@ Generate complete working code. Output ONLY code block."""
                 line = line.strip('"').strip("'")
                 if line and '/' in line:
                     files.append(line)
+            # Also accept lines that look like file paths even without extension in some cases
+            elif 'app/controllers' in line.lower() or 'app/models' in line.lower() or 'app/views' in line.lower():
+                # Try to extract path pattern
+                match = re.search(r'(app/[a-zA-Z_/]+(?:\.php)?)', line, re.IGNORECASE)
+                if match:
+                    path = match.group(1)
+                    if not path.endswith('.php'):
+                        path += '.php'
+                    files.append(path)
+        
+        self.log(f"[DEBUG] Extracted {len(files)} files")
+        return files
         
         return files if files else []
