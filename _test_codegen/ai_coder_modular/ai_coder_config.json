@@ -1,0 +1,77 @@
+{
+  "llama_cpp": {
+    "server_exe": "C:\\dev\\ai_setup_llama_cpp\\llama-cpp\\llama-server.exe",
+    "cli_exe": "C:\\dev\\ai_setup_llama_cpp\\llama-cpp\\llama-cli.exe",
+    "model_path": "C:\\dev\\ai_setup_llama_cpp\\llama-cpp\\models\\google_gemma-4-E2B-it-Q4_K_M.gguf",
+    "server_host": "127.0.0.1",
+    "server_port": 8080,
+    "context_size": 4096,
+    "threads": 4,
+    "batch_size": 512
+  },
+  "source_code": {
+    "default_directory": "C:\\dev\\ai_local_webapp_php",
+    "recent_projects": [],
+    "file_extensions": [
+      ".php",
+      ".py",
+      ".go",
+      ".js",
+      ".html",
+      ".css",
+      ".sql",
+      ".json",
+      ".xml",
+      ".md"
+    ]
+  },
+  "languages": {
+    "php": {
+      "extensions": [
+        ".php"
+      ],
+      "frameworks": [
+        "CodeIgniter",
+        "Laravel"
+      ],
+      "style_guide": "PSR-12"
+    },
+    "python": {
+      "extensions": [
+        ".py"
+      ],
+      "frameworks": [
+        "Flask",
+        "FastAPI"
+      ],
+      "style_guide": "PEP 8"
+    },
+    "go": {
+      "extensions": [
+        ".go"
+      ],
+      "frameworks": [
+        "net/http"
+      ],
+      "style_guide": "Effective Go"
+    }
+  },
+  "ai_prompts": {
+    "system_prompt": "You are an expert programmer. Help analyze and fix code.",
+    "fix_code_prompt": "I have a {language} file with a problem. Please analyze and fix it.\n\nFile: {filename}\nProblem: {problem}\n\nCode:\n{code}",
+    "review_prompt": "Please review this {language} code for bugs, security, and best practices.\n\nCode:\n{code}",
+    "explain_prompt": "Please explain what this {language} code does:\n\n{code}",
+    "write_prompt": "Write a {language} {type} that:\n{requirements}\n\nFollow {style_guide} conventions."
+  },
+  "batch_mode": {
+    "delay_between_files": 5,
+    "max_files_per_run": 50,
+    "auto_save": true,
+    "create_backup": true
+  },
+  "ai_code_gen": {
+    "auto_save": false,
+    "output_directory": "",
+    "backup_on_overwrite": true
+  }
+}

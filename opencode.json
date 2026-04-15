@@ -8,5 +8,5 @@
       }
     }
   },
-  "model": "local-gemma4/gemma4"
+  "model": "local-gemma4/google_gemma-4-E2B-it-Q4_K_M.gguf"
 }

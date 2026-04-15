@@ -1,0 +1,115 @@
+{
+  "llama_cpp": {
+    "server_exe": "C:\\dev\\ai_setup_llama_cpp\\llama-cpp\\llama-server.exe",
+    "cli_exe": "C:\\dev\\ai_setup_llama_cpp\\llama-cpp\\llama-cli.exe",
+    "model_path": "C:\\dev\\ai_setup_llama_cpp\\llama-cpp\\models\\google_gemma-4-E2B-it-Q4_K_M.gguf",
+    "server_host": "127.0.0.1",
+    "server_port": 8080,
+    "context_size": 4096,
+    "threads": 4,
+    "batch_size": 512
+  },
+  "source_code": {
+    "default_directory": "C:\\dev\\ai_local_webapp_php",
+    "recent_projects": [
+      "C:\\dev\\ai_local_webapp_php"
+    ],
+    "file_extensions": [
+      ".php",
+      ".py",
+      ".go",
+      ".js",
+      ".html",
+      ".css",
+      ".sql",
+      ".json",
+      ".xml",
+      ".md"
+    ]
+  },
+  "languages": {
+    "php": {
+      "extensions": [
+        ".php"
+      ],
+      "frameworks": [
+        "CodeIgniter",
+        "Laravel",
+        "Symfony"
+      ],
+      "lint_command": "php -l",
+      "style_guide": "PSR-12"
+    },
+    "python": {
+      "extensions": [
+        ".py"
+      ],
+      "frameworks": [
+        "Flask",
+        "FastAPI",
+        "Django"
+      ],
+      "lint_command": "python -m pylint",
+      "style_guide": "PEP 8"
+    },
+    "go": {
+      "extensions": [
+        ".go"
+      ],
+      "frameworks": [
+        "net/http",
+        "gin",
+        "echo",
+        "fiber"
+      ],
+      "lint_command": "go vet",
+      "style_guide": "Effective Go"
+    }
+  },
+  "ai_prompts": {
+    "system_prompt": "You are an expert multi-language programmer specializing in PHP (CodeIgniter), Python, and Golang. You help read, analyze, fix, and improve code. Always provide clear explanations and working code examples. Detect the programming language automatically from file extension.",
+    "fix_code_prompt": "I have a {language} file with a problem. Please:\n1. Analyze the code and identify issues\n2. Explain each problem found\n3. Provide the corrected code\n4. Explain why the fix works\n\nFile: {filename}\nProblem: {problem}\n\nCode:\n{code}",
+    "review_prompt": "Please review this {language} code for:\n- Bugs and errors\n- Security vulnerabilities\n- Performance issues\n- Code style and best practices\n- Language idioms and conventions\n\nCode:\n{code}\n\nList all issues with line numbers and suggested fixes.",
+    "php_review_prompt": "Please review this PHP/CodeIgniter code for:\n- Bugs and errors\n- Security vulnerabilities (SQL injection, XSS, CSRF)\n- Performance issues\n- PSR-12 style compliance\n- Database query optimization\n\nCode:\n{code}\n\nList all issues with line numbers and suggested fixes.",
+    "python_review_prompt": "Please review this Python code for:\n- Bugs and errors\n- Security vulnerabilities\n- Performance issues\n- PEP 8 style compliance\n- Type hints and best practices\n- Common anti-patterns\n\nCode:\n{code}\n\nList all issues with line numbers and suggested fixes.",
+    "go_review_prompt": "Please review this Go code for:\n- Bugs and errors\n- Security vulnerabilities\n- Performance issues\n- Idiomatic Go patterns\n- Error handling best practices\n- Unnecessary allocations\n- Proper use of interfaces\n\nCode:\n{code}\n\nList all issues with line numbers and suggested fixes.",
+    "explain_prompt": "Please explain what this {language} code does step by step:\n\n{code}",
+    "refactor_prompt": "Refactor this {language} code to be:\n- More readable and maintainable\n- Follow language best practices\n- More efficient\n- More secure\n\nCurrent code:\n{code}\n\nShow the improved version with explanations.",
+    "write_prompt": "Write a {language} {type} that:\n{requirements}\n\nFollow these conventions:\n- Use idiomatic {language} patterns\n- Include proper error handling\n- Add comments explaining complex logic\n- Follow {style_guide} style guide\n\nProvide the complete working code.",
+    "python_write_prompt": "Write a Python {type} that:\n{requirements}\n\nFollow these conventions:\n- Use PEP 8 style\n- Include type hints\n- Add docstrings\n- Handle errors properly\n- Use virtual environment packages\n\nProvide the complete working code.",
+    "go_write_prompt": "Write a Go {type} that:\n{requirements}\n\nFollow these conventions:\n- Use idiomatic Go patterns\n- Proper error handling\n- Include go doc comments\n- Follow Effective Go guidelines\n- Use appropriate concurrency patterns\n\nProvide the complete working code.",
+    "php_write_prompt": "Write a PHP CodeIgniter {type} that:\n{requirements}\n\nFollow these conventions:\n- Use CodeIgniter {version} patterns\n- Include proper validation and error handling\n- Use query builders safely\n- Add comments explaining complex logic\n\nProvide the complete working code."
+  },
+  "batch_mode": {
+    "delay_between_files": 5,
+    "max_files_per_run": 50,
+    "auto_save": true,
+    "create_backup": true,
+    "tasks": {
+      "php_security": "Check PHP files for security issues (SQL injection, XSS, CSRF)",
+      "python_quality": "Check Python files for code quality and PEP 8 compliance",
+      "go_idiomatic": "Check Go files for idiomatic patterns and best practices",
+      "all_review": "General code review for all languages"
+    }
+  },
+  "database": {
+    "xampp_mysql_path": "C:\\xampp\\mysql\\bin\\mysql.exe",
+    "default_host": "localhost",
+    "default_user": "root",
+    "default_password": ""
+  },
+  "ai_code_gen": {
+    "auto_save": false,
+    "output_directory": "C:\\dev\\ai_setup_llama_cpp\\_test_codegen\\ai_output",
+    "backup_on_overwrite": true,
+    "supported_languages": [
+      "php",
+      "python",
+      "go",
+      "javascript",
+      "html",
+      "css",
+      "sql"
+    ]
+  }
+}

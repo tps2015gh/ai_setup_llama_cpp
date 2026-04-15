@@ -1,0 +1,34 @@
+in this notebook in folder  C:\dev\ai_setup_llama_cpp  
+i already install llama.cpp in this with model in C:\dev\ai_setup_llama_cpp\llama-cpp\models
+there are  model   google_gemma-4-E2B-it-Q4_K_M.gguf 
+
+PS C:\dev\ai_setup_llama_cpp\llama-cpp\models> dir
+
+
+    Directory: C:\dev\ai_setup_llama_cpp\llama-cpp\models
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          4/6/2026  10:51 PM     3462673376 google_gemma-4-E2B-it-Q4_K_M.gguf
+
+
+program llama have README.MD how to run server with 
+
+ C:\dev\ai_setup_llama_cpp\README.MD  this show how to use and create AI api server offline 
+===================================================
+
+Create program python to use this offline AI to edit some program 
+(make this do like agentic ai tools like opencode and gemini cli  but lightweight  more ) 
+. since google_gemma-4-E2B-it-Q4_K_M.gguf so small , so cannot control or interact with opencode 
+so i want to use python to control edit fix program instread  ( most program is php codeigniter with MySQL xampp ) 
+   
+
+create md how to use this program  python , make this program easily to use 
+some have menu to me to  do if any . 
+
+add program to call start server , and set source code .
+
+also i want to be like openclaw but smaller , can edit and do work 24x7 too. 
+
+ 
