@@ -139,6 +139,47 @@ ai_setup_llama_cpp/
 
 ---
 
+## AI Coder (Advanced Agentic Code Editor)
+
+Located in `_test_codegen/` - A menu-driven AI code editor using local Gemma 4.
+
+### Quick Start
+```powershell
+cd C:\dev\ai_setup_llama_cpp\_test_codegen
+python ai_coder_modular\ai_coder.py
+```
+
+### Main Menu
+```
+Server:
+  1. Start Server          ← Load Gemma 4 model & start API
+  2. Stop Server           ← Free up RAM
+  3. Check Status          ← Verify it's running
+  4. Set Source Directory  ← Point to your project
+
+Agents (YOLO = auto-save):
+  5. Chat Agent            ← Interactive chat with AI
+  6. Edit Agent            ← Single file edit
+  7. Multi-File Agent      ← Create multiple files at once
+  8. Autonomous Agent     ← Loop until task complete (batch create)
+
+Settings:
+  9. Toggle YOLO/Manual    ← Auto-save or confirm each file
+  0. Exit
+```
+
+### Features
+- **Session Persistence** - Resume after crash/restart
+- **Multi-level folders** - Creates nested directories like `app/Views/users/`
+- **Retry logic** - 3 retries on timeout (common with CPU inference)
+- **YOLO Mode** - Auto-save without asking (default)
+- **Multi-file creation** - Generate entire project structure
+
+### Documentation
+See [`_test_codegen/README_AI_CODER.md`](_test_codegen/README_AI_CODER.md) and [`_test_codegen/AI_CODER_USAGE.md`](_test_codegen/AI_CODER_USAGE.md)
+
+---
+
 ## System Requirements
 
 - **OS:** Windows 10/11 (x64)

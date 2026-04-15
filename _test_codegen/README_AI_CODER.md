@@ -42,29 +42,29 @@ python ai_coder.py
 ## Main Menu
 
 ```
-Server Management:
-  1. Start AI Server          ← Load model & start API
-  2. Stop AI Server           ← Free up RAM
-  3. Check Server Status      ← Verify it's running
+Server:
+  1. Start Server          ← Load Gemma 4 model & start API
+  2. Stop Server           ← Free up RAM
+  3. Check Status          ← Verify it's running
+  4. Set Source Directory  ← Point to your project
 
-Source Code:
-  4. Set Source Directory     ← Point to your project
+Agents (YOLO = auto-save):
+  5. Chat Agent            ← Interactive chat with AI
+  6. Edit Agent            ← Single file edit
+  7. Multi-File Agent      ← Create multiple files at once
+  8. Autonomous Agent     ← Loop until task complete
 
-AI Tools:
-  5. Chat with AI             ← Ask anything about code
-  6. Fix File with AI         ← Select file, describe problem
-  7. Review Code Quality      ← Security & performance check
-  8. Explain Code             ← What does this do?
-  9. Write New Code           ← Generate from requirements
-
-Automation:
-  10. Batch Process (24/7)    ← Process many files overnight
-
-Database:
-  11. Analyze MySQL Database  ← Schema review & optimization
-
+Settings:
+  9. Toggle YOLO/Manual    ← Auto-save or confirm each file
   0. Exit
 ```
+
+### New Features (v2.0)
+
+- **Session Persistence** - If crash/restart, ask to resume from where left off
+- **Multi-level folders** - Creates nested directories like `app/Views/users/`
+- **Better path display** - Shows full relative paths like `app/Views/users/index.php`
+- **Increased timeout** - 300s for longer operations
 
 ---
 

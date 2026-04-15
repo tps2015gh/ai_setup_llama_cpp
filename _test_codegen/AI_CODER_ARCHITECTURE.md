@@ -7,32 +7,29 @@
 │                      USER INTERFACE                          │
 │                                                              │
 │  ┌─────────────────────────────────────────────────────┐    │
-│  │         AI Coder (ai_coder.py)                      │    │
-│  │         Menu-Driven Python Tool                     │    │
+│  │         AI Coder (ai_coder_modular/ai_coder.py)      │    │
+│  │         Menu-Driven Python Tool (v2.0)                │    │
 │  │                                                      │    │
-│  │  ┌───────────────────────────────────────────┐     │    │
-│  │  │  Main Menu System                         │     │    │
-│  │  │  1-3:  Server Management                  │     │    │
-│  │  │  4:    Source Directory                   │     │    │
-│  │  │  5-9:  AI Tools                           │     │    │
-│  │  │  10:   Batch Processing                   │     │    │
-│  │  │  11:   Database Analysis                  │     │    │
-│  │  └───────────────────────────────────────────┘     │    │
+│  │  ┌───────────────────────────────────────────┐       │    │
+│  │  │  Main Menu System                         │       │    │
+│  │  │  1-4:  Server Management                  │       │    │
+│  │  │  5-8:  Agent Selection                    │       │    │
+│  │  │  9:    Settings (YOLO mode toggle)       │       │    │
+│  │  └───────────────────────────────────────────┘       │    │
 │  │                                                      │    │
-│  │  ┌───────────────────────────────────────────┐     │    │
-│  │  │  Features:                                │     │    │
-│  │  │  • File I/O (read/write PHP, JS, etc.)   │     │    │
-│  │  │  • Server management (subprocess)         │     │    │
-│  │  │  • AI communication (HTTP requests)       │     │    │
-│  │  │  • Batch automation                       │     │    │
-│  │  │  • Database queries (MySQL)               │     │    │
-│  │  └───────────────────────────────────────────┘     │    │
+│  │  ┌───────────────────────────────────────────┐       │    │
+│  │  │  Modular Agents:                           │       │    │
+│  │  │  • ChatAgent     - Interactive chat       │       │    │
+│  │  │  • EditAgent     - Single file edit       │       │    │
+│  │  │  • MultiFileAgent - Multiple files        │       │    │
+│  │  │  • AutonomousAgent - Loop until done      │       │    │
+│  │  └───────────────────────────────────────────┘       │    │
 │  └─────────────────────────────────────────────────────┘    │
 └─────────────────────────────────────────────────────────────┘
-                            │
-                            │ HTTP REST API
-                            │ (requests library)
-                            ▼
+                             │
+                             │ HTTP REST API
+                             │ (requests library)
+                             ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    AI INFERENCE LAYER                        │
 │                                                              │
@@ -43,16 +40,15 @@
 │  │     • Runs on http://127.0.0.1:8080                 │    │
 │  │     • CPU inference (optimized for 8GB RAM)         │    │
 │  └─────────────────────────────────────────────────────┘    │
-│                            │                                 │
-│                            │ Model loading                   │
-│                            ▼                                 │
-│  ┌─────────────────────────────────────────────────────┐    │
-│  │     Gemma 4 E2B Q4_K_M Model                        │    │
-│  │     • 3.46GB GGUF format                            │    │
-│  │     • 4-bit quantized                               │    │
-│  │     • 131K context (use 2-4K on 8GB)               │    │
-│  │     • ~10 tokens/sec on CPU                         │    │
-│  └─────────────────────────────────────────────────────┘    │
+                            │                                 │
+                            │ Model loading                   │
+                            ▼                                 │
+┌─────────────────────────────────────────────────────────────┐
+│     Gemma 4 E2B Q4_K_M Model                                │
+│     • 3.46GB GGUF format                                    │
+│     • 4-bit quantized                                       │
+│     • 131K context (use 2-4K on 8GB)                       │
+│     • ~10 tokens/sec on CPU                                │
 └─────────────────────────────────────────────────────────────┘
                             │
                             │ File operations

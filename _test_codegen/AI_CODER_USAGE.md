@@ -18,12 +18,47 @@ AI Coder is a lightweight, menu-driven Python tool that uses your local **llama.
 
 ---
 
+## Version 2.0 - Modular Architecture
+
+The new modular version uses agents for different tasks:
+
+```
+Server:
+  1. Start Server          ← Load Gemma 4 model & start API
+  2. Stop Server           ← Free up RAM
+  3. Check Status          ← Verify it's running
+  4. Set Source Directory  ← Point to your project
+
+Agents (YOLO = auto-save):
+  5. Chat Agent            ← Interactive chat with AI
+  6. Edit Agent            ← Single file edit
+  7. Multi-File Agent      ← Create multiple files at once
+  8. Autonomous Agent     ← Loop until task complete
+
+Settings:
+  9. Toggle YOLO/Manual    ← Auto-save or confirm each file
+  0. Exit
+```
+
+### Key Features
+- **Session Persistence** - If program crashes or restarts, it will ask to resume from where you left off
+- **Multi-level folders** - Creates nested directories like `app/Views/users/`
+- **Retry logic** - 3 automatic retries on timeout (common with CPU inference)
+- **YOLO Mode** - Auto-save files without asking (default)
+
+---
+
 ## Quick Start
 
-### Step 1: Start the AI Coder
+### Step 1: Start the AI Coder (Modular Version)
 
 ```powershell
 cd C:\dev\ai_setup_llama_cpp\_test_codegen
+python ai_coder_modular\ai_coder.py
+```
+
+Or use the old version:
+```powershell
 python ai_coder.py
 ```
 
