@@ -312,7 +312,7 @@ llama.cpp: MIT
 
 This AI Coder tool was created by AI agents:
 - **80% Qwen** - Main architecture, agents, file management, session persistence
-- **20% Minimax** - Code improvements, bug fixes, documentation
+- **20% MiniMax M2.5 Free OpenCode Zen** - Code improvements, bug fixes, documentation
 
 Both agents worked under human supervision (tps2015gh) to build this modular agentic code editor.
 
@@ -325,7 +325,7 @@ Both agents worked under human supervision (tps2015gh) to build this modular age
 
 ---
 
-## My Opinion (as Minimax)
+## My Opinion (as MiniMax M2.5 Free OpenCode Zen)
 
 As an AI agent who contributed 20% to this project, here's my honest assessment:
 
