@@ -97,7 +97,7 @@ class AutonomousAgent(BaseAgent):
         loop_count = 0
         errors = 0
         
-        # Check for previous session
+# Check for previous session
         session = self.load_session()
         if session:
             todo = session.get('todo', [])
@@ -105,14 +105,14 @@ class AutonomousAgent(BaseAgent):
             errors = session.get('errors', 0)
             loop_count = session.get('loop_count', 0)
             print(f"{Fore.YELLOW}[SESSION] Resuming from loop {loop_count}{Style.RESET_ALL}\n")
-        
-        # Initial planning - ask for MORE files (only if no session)
-        print(f"{Fore.CYAN}[Step 1/3] Creating project plan...{Style.RESET_ALL}")
-        
-        files = self.files.list_files()
-        file_list = "\n".join([os.path.relpath(f, self.get_source_dir()) for f in files[:30]])
-        
-        prompt = f"""Task: {task}
+        else:
+            # Initial planning - ask for MORE files (only if no session)
+            print(f"{Fore.CYAN}[Step 1/3] Creating project plan...{Style.RESET_ALL}")
+            
+            files = self.files.list_files()
+            file_list = "\n".join([os.path.relpath(f, self.get_source_dir()) for f in files[:30]])
+            
+            prompt = f"""Task: {task}
 
 Current project files:
 {file_list}
@@ -125,29 +125,29 @@ app/Controllers/UserController.php
 app/Models/UserModel.php
 app/Views/users/index.php"""
 
-        response = self.ask_ai(prompt, max_tokens=1500)
-        
-        if response:
-            todo = self.extract_todo(response)
-        
-        # If too few files, ask AI to expand
-        if todo and len(todo) < 5:
-            print(f"{Fore.YELLOW}Only {len(todo)} files planned. Asking for more...{Style.RESET_ALL}")
-            prompt2 = f"""Task: {task}
+            response = self.ask_ai(prompt, max_tokens=1500)
+            
+            if response:
+                todo = self.extract_todo(response)
+            
+            # If too few files, ask AI to expand
+            if todo and len(todo) < 5:
+                print(f"{Fore.YELLOW}Only {len(todo)} files planned. Asking for more...{Style.RESET_ALL}")
+                prompt2 = f"""Task: {task}
 
 Already planned: {', '.join(todo)}
 
 What ADDITIONAL files are needed? List more files that should be created.
 Include: views, controllers, models, config, helpers, etc.
 Reply with list of additional files, one per line."""
-            
-            response2 = self.ask_ai(prompt2, max_tokens=800)
-            if response2:
-                more_files = self.extract_todo(response2)
-                todo.extend([f for f in more_files if f not in todo])
+
+                response2 = self.ask_ai(prompt2, max_tokens=800)
+                if response2:
+                    more_files = self.extract_todo(response2)
+                    todo.extend([f for f in more_files if f not in todo])
         
         if not todo:
-            todo = ["pending"]
+            todo = []
         
         print(f"{Fore.GREEN}[✓] Todo: {len(todo)} files to create{Style.RESET_ALL}\n")
         
@@ -163,8 +163,8 @@ Reply with list of additional files, one per line."""
             
             current = todo.pop(0)
             
-            # If pending, ask AI what to do
-            if current == "pending" or not isinstance(current, str):
+            # If todo is empty, ask AI what to do
+            if not current:
                 status = f"Completed: {', '.join(completed[-5:])}" if completed else "Nothing yet"
                 
                 prompt = f"""Task: {task}
@@ -303,4 +303,4 @@ Generate complete working code. Output ONLY code block."""
                 if line and '/' in line:
                     files.append(line)
         
-        return files if files else ["pending"]
+        return files if files else []
