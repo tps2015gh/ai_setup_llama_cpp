@@ -8,6 +8,7 @@ import time
 import subprocess
 import requests
 from colorama import Fore, Style
+from datetime import datetime
 
 
 class AIServer:
@@ -15,6 +16,10 @@ class AIServer:
         self.config = config
         self.process = None
         self.running = False
+    
+    def get_timestamp(self):
+        """Get current timestamp"""
+        return datetime.now().strftime("%H:%M:%S")
     
     def get_llama_config(self):
         """Get llama.cpp configuration"""
@@ -161,7 +166,7 @@ class AIServer:
         }
         
         try:
-            print(f"{Fore.CYAN}[AI] Thinking...{Style.RESET_ALL}")
+            print(f"{Fore.CYAN}[{self.get_timestamp()}] AI Thinking...{Style.RESET_ALL}")
             # Increase timeout for longer operations
             response = requests.post(url, json=payload, timeout=300)
             

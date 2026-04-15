@@ -9,6 +9,19 @@ import os
 import re
 import time
 import json
+from datetime import datetime
+
+
+class AutonomousAgent(BaseAgent):
+    """Agent that loops and creates/edits files until task is done"""
+    
+    def get_timestamp(self):
+        """Get current timestamp"""
+        return datetime.now().strftime("%H:%M:%S")
+    
+    def log(self, message):
+        """Print message with timestamp"""
+        print(f"{Fore.CYAN}[{self.get_timestamp()}]{Style.RESET_ALL} {message}")
 
 
 class AutonomousAgent(BaseAgent):
@@ -84,11 +97,12 @@ class AutonomousAgent(BaseAgent):
         
         print(f"\n{Fore.CYAN}{'='*60}{Style.RESET_ALL}")
         print(f"{Fore.CYAN}  Autonomous Agent - Loop Mode{Style.RESET_ALL}")
-        print(f"{Fore.CYAN}{'='*60}{Style.RESET_ALL}\n")
+        print(f"{Fore.CYAN}{'='*60}{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}Start: {self.get_timestamp()}{Style.RESET_ALL}\n")
         
         mode_str = f"{Fore.GREEN}YOLO (Auto-save){Style.RESET_ALL}" if yolo_mode else f"{Fore.YELLOW}Manual (Confirm){Style.RESET_ALL}"
-        print(f"{Fore.YELLOW}Mode: {mode_str}{Style.RESET_ALL}")
-        print(f"{Fore.YELLOW}Task: {task}{Style.RESET_ALL}")
+        self.log(f"Mode: {mode_str}")
+        self.log(f"Task: {task}")
         print(f"{Fore.YELLOW}The AI will loop and create files until done{Style.RESET_ALL}\n")
         
         max_loops = 5000
@@ -96,18 +110,19 @@ class AutonomousAgent(BaseAgent):
         todo = []
         loop_count = 0
         errors = 0
+        start_time = time.time()
         
-# Check for previous session
+        # Check for previous session
         session = self.load_session()
         if session:
             todo = session.get('todo', [])
             completed = session.get('completed', [])
             errors = session.get('errors', 0)
             loop_count = session.get('loop_count', 0)
-            print(f"{Fore.YELLOW}[SESSION] Resuming from loop {loop_count}{Style.RESET_ALL}\n")
+            self.log(f"[SESSION] Resuming from loop {loop_count}")
         else:
             # Initial planning - ask for MORE files (only if no session)
-            print(f"{Fore.CYAN}[Step 1/3] Creating project plan...{Style.RESET_ALL}")
+            self.log("[Step 1/3] Creating project plan...")
             
             files = self.files.list_files()
             file_list = "\n".join([os.path.relpath(f, self.get_source_dir()) for f in files[:30]])
@@ -132,7 +147,7 @@ app/Views/users/index.php"""
             
             # If too few files, ask AI to expand
             if todo and len(todo) < 5:
-                print(f"{Fore.YELLOW}Only {len(todo)} files planned. Asking for more...{Style.RESET_ALL}")
+                self.log(f"Only {len(todo)} files planned. Asking for more...")
                 prompt2 = f"""Task: {task}
 
 Already planned: {', '.join(todo)}
@@ -149,17 +164,17 @@ Reply with list of additional files, one per line."""
         if not todo:
             todo = []
         
-        print(f"{Fore.GREEN}[✓] Todo: {len(todo)} files to create{Style.RESET_ALL}\n")
+        self.log(f"[✓] Todo: {len(todo)} files to create")
         
         # Main loop
-        print(f"{Fore.CYAN}[Step 2/3] Creating files...{Style.RESET_ALL}\n")
+        self.log("[Step 2/3] Creating files...")
         
         while loop_count < max_loops and todo:
             loop_count += 1
             
             # Progress update every 5 loops
             if loop_count % 5 == 0:
-                print(f"{Fore.CYAN}[Progress] {loop_count} loops done, {len(completed)} completed, {len(todo)} remaining{Style.RESET_ALL}")
+                self.log(f"[Progress] {loop_count} loops done, {len(completed)} completed, {len(todo)} remaining")
             
             current = todo.pop(0)
             
@@ -252,7 +267,7 @@ Generate complete working code. Output ONLY code block."""
             
             # Auto-save (YOLO mode is default)
             if self.files.write(filepath, code):
-                print(f"    {Fore.GREEN}[✓] Saved: {filename}{Style.RESET_ALL}")
+                self.log(f"[✓] Saved: {filename}")
                 completed.append(filename)
             else:
                 print(f"    {Fore.RED}[✗] Write failed{Style.RESET_ALL}")
@@ -268,10 +283,17 @@ Generate complete working code. Output ONLY code block."""
         # Clear session on completion
         self.clear_session()
         
+        # Calculate elapsed time
+        elapsed = int(time.time() - start_time)
+        hours, minutes, seconds = elapsed // 3600, (elapsed % 3600) // 60, elapsed % 60
+        elapsed_str = f"{hours:02d}:{minutes:02d}:{seconds:02d}" if hours > 0 else f"{minutes:02d}:{seconds:02d}"
+        
         # Summary
         print(f"\n{Fore.CYAN}{'='*60}{Style.RESET_ALL}")
         print(f"{Fore.CYAN}  Autonomous Agent Complete{Style.RESET_ALL}")
         print(f"{Fore.CYAN}{'='*60}{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}  End: {self.get_timestamp()}{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}  Duration: {elapsed_str}{Style.RESET_ALL}")
         print(f"{Fore.GREEN}  Files created/edited: {len(completed)}{Style.RESET_ALL}")
         print(f"{Fore.RED}  Errors: {errors}{Style.RESET_ALL}")
         print(f"{Fore.YELLOW}  Total loops: {loop_count}{Style.RESET_ALL}")
