@@ -45,6 +45,7 @@ Settings:
 - **Multi-level folders** - Creates nested directories like `app/Views/users/`
 - **Retry logic** - 3 automatic retries on timeout (common with CPU inference)
 - **YOLO Mode** - Auto-save files without asking (default)
+- **Bug fix** - Fixed issue where AI could create "pending" placeholder file
 
 ---
 

@@ -65,6 +65,7 @@ Settings:
 - **Multi-level folders** - Creates nested directories like `app/Views/users/`
 - **Better path display** - Shows full relative paths like `app/Views/users/index.php`
 - **Increased timeout** - 300s for longer operations
+- **Bug fix** - Fixed issue where AI could create "pending" as a placeholder file
 
 ---
 
