@@ -178,6 +178,18 @@ Settings:
 ### Documentation
 See [`_test_codegen/README_AI_CODER.md`](_test_codegen/README_AI_CODER.md) and [`_test_codegen/AI_CODER_USAGE.md`](_test_codegen/AI_CODER_USAGE.md)
 
+### All _test_codegen Documentation Files
+
+| File | Purpose |
+|------|---------|
+| [`_test_codegen/README_AI_CODER.md`](_test_codegen/README_AI_CODER.md) | Main documentation & quick start |
+| [`_test_codegen/AI_CODER_USAGE.md`](_test_codegen/AI_CODER_USAGE.md) | Complete usage guide (detailed) |
+| [`_test_codegen/AI_CODER_ARCHITECTURE.md`](_test_codegen/AI_CODER_ARCHITECTURE.md) | System architecture & design |
+| [`_test_codegen/CODE_GENERATION_DOCS.md`](_test_codegen/CODE_GENERATION_DOCS.md) | Code generation features |
+| [`_test_codegen/SERVER_STATUS_DOCS.md`](_test_codegen/SERVER_STATUS_DOCS.md) | Server status & monitoring |
+| [`_test_codegen/MULTILANG_SUMMARY.md`](_test_codegen/MULTILANG_SUMMARY.md) | Multi-language support |
+| [`_test_codegen/plan.md`](_test_codegen/plan.md) | Project plan & roadmap |
+
 ---
 
 ## System Requirements

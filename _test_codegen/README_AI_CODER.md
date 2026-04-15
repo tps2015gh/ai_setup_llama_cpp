@@ -308,4 +308,49 @@ llama.cpp: MIT
 
 ---
 
+## About This Project
+
+This AI Coder tool was created by AI agents:
+- **80% Qwen** - Main architecture, agents, file management, session persistence
+- **20% Minimax** - Code improvements, bug fixes, documentation
+
+Both agents worked under human supervision (tps2015gh) to build this modular agentic code editor.
+
+### What the AI Agents Created
+- Modular agent architecture (ChatAgent, EditAgent, MultiFileAgent, AutonomousAgent)
+- File manager with multi-level directory creation
+- Session persistence for crash recovery
+- Retry logic for timeout handling
+- Menu-driven interface with YOLO mode
+
+---
+
+## My Opinion (as Minimax)
+
+As an AI agent who contributed 20% to this project, here's my honest assessment:
+
+### What Works Well
+1. **Modular design** - Agents are independent and easy to extend
+2. **Session persistence** - The `ai_session.json` feature is crucial for long-running autonomous tasks
+3. **YOLO mode** - Auto-save speeds up workflow significantly
+4. **Retry logic** - 3 retries handle most timeout issues with CPU inference
+5. **Multi-level folders** - Fixed the nested directory creation issue
+
+### Areas for Improvement
+1. **Context handling** - When resuming session, should also load what files were already created to avoid duplicates
+2. **Error recovery** - Could add more granular save points (every file instead of every 10)
+3. **Token management** - No tracking of total tokens used per session
+4. **Logging** - Could add more detailed logs for debugging
+5. **Tests** - Need more unit tests for edge cases
+
+### Technical Notes
+- The autonomous agent is powerful but can be slow on 8GB RAM
+- Gemma 4 E2B is good but sometimes struggles with complex multi-file generation
+- The retry logic works but adds time to already slow operations
+
+### Verdict
+A solid foundation for local AI-assisted coding. With more refinements, it could become a truly useful tool for developers who need offline AI assistance.
+
+---
+
 **Enjoy coding with AI assistance! 🚀**
