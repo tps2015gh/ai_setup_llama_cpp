@@ -4,6 +4,7 @@ Base class for all AI agents
 """
 
 from colorama import Fore, Style
+from datetime import datetime
 import os
 
 
@@ -12,6 +13,14 @@ class BaseAgent:
         self.ai = ai_server
         self.files = file_manager
         self.config = config
+    
+    def get_timestamp(self):
+        """Get current timestamp"""
+        return datetime.now().strftime("%H:%M:%S")
+    
+    def log(self, message):
+        """Print message with timestamp"""
+        print(f"{Fore.CYAN}[{self.get_timestamp()}]{Style.RESET_ALL} {message}")
     
     def run(self, task):
         """Override this in subclasses"""

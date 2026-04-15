@@ -9,19 +9,6 @@ import os
 import re
 import time
 import json
-from datetime import datetime
-
-
-class AutonomousAgent(BaseAgent):
-    """Agent that loops and creates/edits files until task is done"""
-    
-    def get_timestamp(self):
-        """Get current timestamp"""
-        return datetime.now().strftime("%H:%M:%S")
-    
-    def log(self, message):
-        """Print message with timestamp"""
-        print(f"{Fore.CYAN}[{self.get_timestamp()}]{Style.RESET_ALL} {message}")
 
 
 class AutonomousAgent(BaseAgent):
